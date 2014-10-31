@@ -1,0 +1,61 @@
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li>Money:</li>
+	  <li>$ <span ng-bind="player.currentMoney"></span></li>
+        </ul>
+        <h3 class="text-muted">Programming Clicker</h3>
+      </div>
+      <div class="row">
+	<div class="col-xs-4">
+	  <ul ng-show="player.bug.bug">
+	    <li>Bug: <span ng-bind="player.bug.bug"></span></li>
+	  </ul>
+	  <div class="game-btn">
+	  <a class="btn btn-lg btn-primary" ng-click="doCoding()">
+	      <span class="glyphicon glyphicon-pencil"><span> 
+		Coding! 
+	  </a>
+	  </div>
+        </div>
+	<div class="col-xs-4">
+	  <div class="game-btn">
+	    <a class="btn btn-lg btn-warning" ng-click="doDebug()">
+	      <span class="glyphicon glyphicon-ok">
+	      Debug!
+	      </span>
+	    </a>
+	  </div>
+	</div>
+	
+	<div class="col-xs-4">
+	  <h4>Study</h4>
+	  <ul>
+	    <li>Knowledge: <span ng-bind="player.brain.knowledge"></span></li>
+	    <li ng-show="player.brain.readbook">Reading:<span ng-bind="player.brain.readbook.reading"></span></li>
+	  </ul>
+	  <div class="game-btn">
+	    <a class="btn btn-lg btn-success" ng-click="doKnowfromInternet()">
+	      <span class="glyphicon glyphicon-list-alt">
+	      Internet
+	      </span>
+	    </a>
+	  </div>
+	  <div class="game-btn" ng-show="player.canBuyBook();">
+	    <a class="btn btn-lg btn-success" ng-click="doKnowfromBook()">
+	    <span class="glyphicon glyphicon-list-alt">
+	      Book
+	    </span>
+	    </a>
+	  </div>
+	</div>
+	<div class="col-xs-4" ng-show="player.canShowPC();">
+	  <li ng-show="player.pc.level > 1">PC grade: <span ng-bind="player.pc.level"></span></li>
+	  <div class="game-btn">
+	    <a class="btn btn-lg btn-default" ng-click="doBuyPC()" ng-show="player.canBuyPC();">
+	      Upgrade PC
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
